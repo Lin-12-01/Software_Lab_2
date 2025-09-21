@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>List of smartphones</title>
+
+    <link rel="stylesheet" th:href="@{/styles.css}" href="/styles.css" />
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <h1 class="logo">Shop</h1>
+    </div>
+</header>
+
+<main class="container">
+    <section class="products-section">
+        <h2 class="section-title">Our products</h2>
+        <div class="grid">
+            <div class="card" th:each="item : ${items}">
+                <div class="card-header">
+                    <span class="product-id" th:text="'#' + ${item.id}"></span>
+                    <span class="product-price" th:text="${item.price} + ' тг'"></span>
+                </div>
+                <h3 class="product-name" th:text="${item.name}"></h3>
+                <p class="product-desc" th:text="${item.description}"></p>
+                <div class="card-footer">
+                    <button class="btn btn-primary">Buy</button>
+                    <button class="btn btn-outline"> Read more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+</body>
+</html>
